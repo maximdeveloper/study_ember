@@ -1,0 +1,11 @@
+<form>
+  {{input value=model.title placeholder="Title"}}
+  {{#if (v-get model 'title' 'isInvalid')}}
+    <div class="error">
+      {{v-get model 'title' 'message'}}
+    </div>
+  {{/if}}
+  {{v-get model 'title' 'message'}}
+  {{input}}
+  <!-- <button type="submit" disabled={{v-get model 'isInvalid'}}>Submit</button> -->
+</form>
