@@ -1,11 +1,62 @@
-<form>
+<!-- <form>
   {{input value=model.title placeholder="Title"}}
   {{#if (v-get model 'title' 'isInvalid')}}
     <div class="error">
       {{v-get model 'title' 'message'}}
     </div>
   {{/if}}
-  {{v-get model 'title' 'message'}}
-  {{input}}
-  <!-- <button type="submit" disabled={{v-get model 'isInvalid'}}>Submit</button> -->
-</form>
+  <button type="submit" disabled={{v-get model 'isInvalid'}}>Submit</button> -->
+<!-- </form> -->
+
+<div class="col s8">
+  <div class="card-panel">
+  <div class="container">
+  <form class="col s6">
+    <h3>Form registration: </h3>
+    <div class="row">
+      <div class="input-field col s6">
+        {{input value=model.title class="validate"}}
+        {{log model.validations.attrs.title.isInvalid}}
+        <!-- {{#if (v-get model 'title' 'isInvalid')}}
+          <span class="error">
+            {{v-get model 'title' 'message'}}
+          </span>
+        {{/if}} -->
+        <label for="title">Title</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s3">
+        {{input value=model.username class="validate"}}
+        {{#if (v-get model 'username' 'isInvalid')}}
+          <span class="error">
+            {{v-get model 'username' 'message'}}
+          </span>
+        {{/if}}
+        <label for="email" data-error="wrong">Username</label>
+      </div>
+      <div class="input-field col s3">
+        {{input value=model.email class="validate"}}
+        {{#if (v-get model 'email' 'isInvalid')}}
+          <span class="error">
+            {{v-get model 'email' 'message'}}
+          </span>
+        {{/if}}
+        <label for="email" data-error="wrong">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s4">
+        {{input value=model.city class="validate"}}
+        <label for="city">City</label>
+      </div>
+      <div class="input-field col s2">
+        <button type="submit" disabled={{this.validations.isInvalid}}>
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+  </div>
+  </div>
+</div>

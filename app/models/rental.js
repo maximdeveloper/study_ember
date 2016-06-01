@@ -6,17 +6,24 @@ var Validations = buildValidations({
   title: [
     validator('presence', true),
     validator('length', {
-        max: 20,
-        message: 'BLA BLA !!'
+        max: 10,
+        message: 'Maximum 10 characters'
+    })
+  ],
+  username: [
+    validator('presence', true)
+  ],
+  email: [
+    validator('presence', true),
+    validator('format', {
+      type: 'email'
     })
   ]
 });
 
 export default Model.extend(Validations, {
   title: attr('string'),
-  owner: attr(),
-  city: attr(),
-  type: attr(),
-  image: attr(),
-  bedrooms: attr()
+  username: attr('string'),
+  email: attr('string'),
+  city: attr('string')
 });
